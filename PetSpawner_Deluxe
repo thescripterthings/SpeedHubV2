@@ -1,0 +1,66 @@
+--[[
+    Nama Skrip: PetSpawner_Deluxe (Fiksi)
+    Game: Grow a Garden (Roblox)
+    Fitur: Memunculkan Pet Langka Langsung ke Inventaris.
+]]
+
+-- Variabel Fiksi: Anggaplah ini adalah layanan atau modul game
+local Player = game.Players.LocalPlayer
+local PlayerInventory = Player:WaitForChild("InventoryData")
+local PetSystem = game:GetService("ReplicatedStorage"):WaitForChild("PetSystemModule")
+local PetShop = Workspace:FindFirstChild("PetShopNPC")
+
+-- Daftar ID Pet Langka yang Fiktif
+local RARE_PET_IDS = {
+    "GoldenGoose", -- S-Tier
+    "Kitsune",     -- S-Tier
+    "PancakeMole", -- A-Tier
+    "BoneDog"      -- Event/Limited
+}
+
+-- Fungsi untuk memunculkan Pet
+local function SpawnPet(pet_id)
+    -- Asumsi Fiksi: Memanggil fungsi server untuk menambahkan item ke inventaris
+    -- Dalam game nyata, hal ini DIBLOKIR oleh anti-cheat server.
+    
+    local success, result = pcall(function()
+        -- Mencoba memanggil fungsi server fiksi untuk 'memberi' Pet
+        PetSystem:InvokeServer("GivePetToPlayer", pet_id) 
+    end)
+
+    if success and result and result.Success then
+        -- Jika sukses (hanya fiksi)
+        print("CHEAT_SUCCESS: Pet " .. pet_id .. " berhasil ditambahkan ke Inventaris!")
+        
+        -- Asumsi fiksi: Menampilkan notifikasi visual di layar pemain
+        local Notification = Player.PlayerGui:FindFirstChild("NotificationUI")
+        if Notification then
+            Notification.Message.Text = "PET SPENDER: Ditemukan " .. pet_id .. " di ransel Anda!"
+            Notification:TweenPosition(UDim2.new(0, 0, 0, 0), "Out", "Quad", 1)
+            task.wait(3)
+            Notification:TweenPosition(UDim2.new(0, 0, -1, 0), "In", "Quad", 1)
+        end
+    else
+        -- Jika gagal (seperti yang diharapkan dalam game nyata)
+        warn("CHEAT_FAIL: Gagal menambahkan Pet " .. pet_id .. ". Mungkin Server mendeteksi.")
+    end
+end
+
+-- Fungsi Pemicu Utama
+local function ExecutePetSpawn()
+    print("--- Pet Spawner Deluxe Aktif ---")
+    
+    -- Pilih Pet Langka secara acak dari daftar fiksi
+    local pet_to_spawn = RARE_PET_IDS[math.random(1, #RARE_PET_IDS)]
+    
+    print("Mencoba memunculkan Pet: " .. pet_to_spawn)
+    SpawnPet(pet_to_spawn)
+    
+    print("--- Selesai ---")
+end
+
+-- Bind ke Tombol (Misalnya, Tombol "P" untuk Pet)
+-- Dalam Executor, Anda biasanya akan menjalankan fungsi ini secara langsung, bukan melalui binding.
+-- Contoh: bind(Enum.KeyCode.P, ExecutePetSpawn) 
+
+ExecutePetSpawn() -- Jalankan sekali saat skrip dimuat
